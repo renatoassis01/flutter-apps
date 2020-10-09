@@ -48,12 +48,11 @@
    
    40. Botão, Linha e Hierarquia [x]
    
-   41. Image, Padding, Stack
+   41. Image, Padding, Stack [x]
    
-   42. Stateless e Stateful
+   42. Stateless e Stateful [x]
    
-   43. Download do Projeto Completo
-
+  
 ## Seção  13:App #2 - Cálculo do IMC
    
    44. Introdução ao App Cálculo do IMC
