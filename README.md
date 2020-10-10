@@ -2,7 +2,7 @@
 
 ## Conteúdo:
 
-## App #1 - Contador de Pessoas
+## ![App #1 - Contador de Pessoas](contador_pessoas)
 
     * Stateless vs Stateful 
     * Text
