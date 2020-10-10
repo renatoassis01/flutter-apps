@@ -16,7 +16,7 @@
     * FontWeight
     * FlatButton
 
-## App #2 - Calculadora de IMC
+## ![App #2 - Calculadora de IMC](calculadora_imc)
 
     * Scaffold
     * AppBar
