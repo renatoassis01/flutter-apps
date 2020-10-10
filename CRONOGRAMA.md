@@ -55,21 +55,17 @@
   
 ## Seção  13:App #2 - Cálculo do IMC
    
-   44. Introdução ao App Cálculo do IMC
+   44. Introdução ao App Cálculo do IMC [x]
    
-   45. Scaffold e AppBar
+   45. Scaffold e AppBar [x]
    
-   46. TextField e Decoration
+   46. TextField e Decoration [x]
    
-   47. ScrollView e RaisedButton
+   47. ScrollView e RaisedButton [x]
    
-   48. Controller e Cálculos
+   48. Controller e Cálculos [x]
    
-   49. Formulários e Validações
-   
-   50. [OPCIONAL] Resetar código de erro
-   
-   51. Download do Projeto Completo
+   49. Formulários e Validações [x]
 
 ## Seção  14:App #3 - Conversor de Moedas
    
