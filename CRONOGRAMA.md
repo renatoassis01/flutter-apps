@@ -69,23 +69,23 @@
 
 ## Seção  14:App #3 - Conversor de Moedas
    
-   52. Introdução ao App Conversor de Moedas
+   52. Introdução ao App Conversor de Moedas [x]
    
-   53. Conheça o Padrão JSON
+   53. Conheça o Padrão JSON [x]
       
-   54. API de Valores
+   54. API de Valores [x]
    
-   55. [ATENÇÃO] - Mudança no Pacote HTTP
+   55. [ATENÇÃO] - Mudança no Pacote HTTP [x]
    
-   56. Requisitando os Dados
+   56. Requisitando os Dados [x]
    
-   57. Trabalhando com Futuro
+   57. Trabalhando com Futuro [x]
    
-   58. Construindo com FutureBuilder
+   58. Construindo com FutureBuilder [x]
    
-   59. [ATENÇÃO] - Correção da Borda
+   59. [ATENÇÃO] - Correção da Borda [x]
    
-   60. Criando a Interface
+   60. Criando a Interface [x]
    
    61. Otimizando o Código
    
