@@ -87,17 +87,14 @@
    
    60. Criando a Interface [x]
    
-   61. Otimizando o Código
+   61. Otimizando o Código [x]
    
-   62. Realizando a Conversão
+   62. Realizando a Conversão [x]
    
-   63. [OPCIONAL] Resetar todos os campos
+   63. [OPCIONAL] Resetar todos os campos [x]
    
-   64. [OPCIONAL] Números decimais no iOS
+   64. [OPCIONAL] Números decimais no iOS [x]
    
-   65. Download do Projeto Completo
-
-
 ## Seção  15:App #4 - Lista de Tarefas
 
    66. Introdução ao App Lista de Tarefas

@@ -30,6 +30,47 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   double dolar;
   double euro;
+
+  final brlController = TextEditingController();
+  final dolarController = TextEditingController();
+  final eurController = TextEditingController();
+
+  void _brlChange(String text) {
+    if (text.isEmpty) {
+      _clearAll();
+      return;
+    }
+    double brl = double.parse(text);
+    dolarController.text = (brl / dolar).toStringAsFixed(2);
+    eurController.text = (brl / euro).toStringAsFixed(2);
+  }
+
+  void _eurChange(String text) {
+    if (text.isEmpty) {
+      _clearAll();
+      return;
+    }
+    double eur = double.parse(text);
+    brlController.text = (eur * this.euro).toStringAsFixed(2);
+    dolarController.text = (eur * this.euro / dolar).toStringAsFixed(2);
+  }
+
+  void _dolarChange(String text) {
+    if (text.isEmpty) {
+      _clearAll();
+      return;
+    }
+    double usd = double.parse(text);
+    brlController.text = (usd * this.dolar).toStringAsFixed(2);
+    eurController.text = (usd * this.dolar / euro).toStringAsFixed(2);
+  }
+
+  void _clearAll() {
+    brlController.text = "";
+    dolarController.text = "";
+    eurController.text = "";
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,35 +104,12 @@ class _HomeState extends State<Home> {
                       children: <Widget>[
                         Icon(Icons.monetization_on,
                             size: 150.0, color: Colors.amber),
-                        TextField(
-                          keyboardType: TextInputType.number,
-                          decoration: InputDecoration(
-                              labelText: "BRL",
-                              labelStyle: TextStyle(
-                                  color: Colors.amber, fontSize: 20.0),
-                              border: OutlineInputBorder(),
-                              prefixText: "R\$"),
-                        ),
+                        buildTextField("BRL", "R\$", brlController, _brlChange),
                         Divider(),
-                        TextField(
-                          keyboardType: TextInputType.number,
-                          decoration: InputDecoration(
-                              labelText: "EUR",
-                              labelStyle: TextStyle(
-                                  color: Colors.amber, fontSize: 20.0),
-                              border: OutlineInputBorder(),
-                              prefixText: "€"),
-                        ),
+                        buildTextField("EUR", "€", eurController, _eurChange),
                         Divider(),
-                        TextField(
-                          keyboardType: TextInputType.number,
-                          decoration: InputDecoration(
-                              labelText: "USD",
-                              labelStyle: TextStyle(
-                                  color: Colors.amber, fontSize: 20.0),
-                              border: OutlineInputBorder(),
-                              prefixText: "US\$"),
-                        )
+                        buildTextField(
+                            "USD", "USD\$", dolarController, _dolarChange),
                       ],
                     ),
                   );
@@ -105,4 +123,18 @@ class _HomeState extends State<Home> {
 Future<Map> getData() async {
   http.Response response = await http.get(API_URL);
   return jsonDecode(response.body);
+}
+
+Widget buildTextField(String label, String prefix,
+    TextEditingController controller, Function fn) {
+  return TextField(
+    controller: controller,
+    onChanged: fn,
+    keyboardType: TextInputType.numberWithOptions(decimal: true),
+    decoration: InputDecoration(
+        labelText: label,
+        labelStyle: TextStyle(color: Colors.amber, fontSize: 20.0),
+        border: OutlineInputBorder(),
+        prefixText: prefix),
+  );
 }
