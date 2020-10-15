@@ -17,7 +17,10 @@ void main() async {
               OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
           focusedBorder:
               OutlineInputBorder(borderSide: BorderSide(color: Colors.amber)),
-          hintStyle: TextStyle(color: Colors.amber),
+          hintStyle: TextStyle(
+            inherit: false,
+            color: Colors.amber,
+          ),
         )),
   ));
 }
@@ -104,12 +107,13 @@ class _HomeState extends State<Home> {
                       children: <Widget>[
                         Icon(Icons.monetization_on,
                             size: 150.0, color: Colors.amber),
-                        buildTextField("BRL", "R\$", brlController, _brlChange),
+                        buildTextField(
+                            "BRL", "R\$ ", brlController, _brlChange),
                         Divider(),
-                        buildTextField("EUR", "€", eurController, _eurChange),
+                        buildTextField("EUR", "€ ", eurController, _eurChange),
                         Divider(),
                         buildTextField(
-                            "USD", "USD\$", dolarController, _dolarChange),
+                            "USD", "USD\$ ", dolarController, _dolarChange),
                       ],
                     ),
                   );
