@@ -97,11 +97,11 @@
    
 ## Seção  15:App #4 - Lista de Tarefas
 
-   66. Introdução ao App Lista de Tarefas
+   66. Introdução ao App Lista de Tarefas [x]
 
-   67. [ATENÇÃO] - Versões dos Plugins para o App #4
+   67. [ATENÇÃO] - Versões dos Plugins para o App #4 [x]
 
-   68. Lendo e Escrevendo Dados
+   68. Lendo e Escrevendo Dados [x]
 
    69. Iniciando o Layout
 
