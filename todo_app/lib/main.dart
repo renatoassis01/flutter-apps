@@ -16,9 +16,22 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final List<Map> _todoList = [
-    {"tile": "Renato", "done": true}
-  ];
+  final List _todoList = [];
+  final TextEditingController _todoController = TextEditingController();
+
+  void _addTodo() {
+    setState(() {
+      Map<String, dynamic> newTodo = Map();
+      newTodo["title"] = _todoController.text;
+      newTodo["done"] = false;
+      _todoList.add(newTodo);
+      //_todoList.add({"title": _todoController.text, "done": false});
+    });
+  }
+
+  void _clearAddTodoController() {
+    _todoController.text = "";
+  }
 
   Future<File> _getFile() async {
     final directory = await getApplicationDocumentsDirectory();
@@ -56,13 +69,17 @@ class _HomeState extends State<Home> {
                 children: [
                   Expanded(
                     child: TextField(
+                      controller: _todoController,
                       decoration: InputDecoration(
                           labelText: "Nova Tarefa",
                           labelStyle: TextStyle(color: Colors.black)),
                     ),
                   ),
                   RaisedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _addTodo();
+                        _clearAddTodoController();
+                      },
                       color: Colors.blueAccent,
                       child: Text("Add"),
                       textColor: Colors.white)
@@ -80,6 +97,11 @@ class _HomeState extends State<Home> {
                         child: Icon(_todoList[index]["done"]
                             ? Icons.check
                             : Icons.error)),
+                    onChanged: (bool value) {
+                      setState(() {
+                        _todoList[index]["done"] = value;
+                      });
+                    },
                   );
                 },
                 itemCount: _todoList.length,
