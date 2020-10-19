@@ -16,7 +16,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final List _todoList = [];
+  final List<Map> _todoList = [
+    {"tile": "Renato", "done": true}
+  ];
 
   Future<File> _getFile() async {
     final directory = await getApplicationDocumentsDirectory();
@@ -66,7 +68,23 @@ class _HomeState extends State<Home> {
                       textColor: Colors.white)
                 ],
               ),
-            )
+            ),
+            Expanded(
+              child: ListView.builder(
+                padding: EdgeInsets.only(top: 5.0),
+                itemBuilder: (BuildContext context, int index) {
+                  return CheckboxListTile(
+                    title: Text(_todoList[index]["title"]),
+                    value: _todoList[index]["done"],
+                    secondary: CircleAvatar(
+                        child: Icon(_todoList[index]["done"]
+                            ? Icons.check
+                            : Icons.error)),
+                  );
+                },
+                itemCount: _todoList.length,
+              ),
+            ),
           ],
         ));
   }
