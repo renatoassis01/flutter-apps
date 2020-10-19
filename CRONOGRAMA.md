@@ -103,11 +103,11 @@
 
    68. Lendo e Escrevendo Dados [x]
 
-   69. Iniciando o Layout
+   69. Iniciando o Layout [x]
 
-   70. Criando a Lista
+   70. Criando a Lista [x]
 
-   71. Adicionando Itens na Lista
+   71. Adicionando Itens na Lista [x]
 
    72. Salvando as Tarefas Permanentemente
 

@@ -26,6 +26,14 @@ https://medium.com/@fabiojansen86/o-ecossistema-flutter-getx-gerenciamento-de-es
 https://flutter.dev/docs/development/data-and-backend/state-mgmt/options
 
 
+### Usando o dev-tools
+https://flutter.dev/docs/development/tools/devtools/inspector
+
+
+### layout 
+https://flutter.dev/docs/development/ui/layout
+
+
 ## outras documentação 
 
 ### padrão getx
