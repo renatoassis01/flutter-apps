@@ -109,9 +109,9 @@
 
    71. Adicionando Itens na Lista [x]
 
-   72. Salvando as Tarefas Permanentemente
+   72. Salvando as Tarefas Permanentemente [x]
 
-   73. Itens Removíveis
+   73. Itens Removíveis [x]
 
    74. SnackBar e Desfazendo Ação
 

@@ -39,6 +39,34 @@ class _HomeState extends State<Home> {
     _todoController.text = "";
   }
 
+  Widget _itemBuilder(BuildContext context, int index) {
+    return Dismissible(
+      key: Key(index.toString()),
+      direction: DismissDirection.startToEnd,
+      child: CheckboxListTile(
+        title: Text(_todoList[index]["title"]),
+        value: _todoList[index]["done"],
+        secondary: CircleAvatar(
+            child: Icon(_todoList[index]["done"] ? Icons.check : Icons.error)),
+        onChanged: (bool value) {
+          setState(() {
+            _todoList[index]["done"] = value;
+            _saveData();
+          });
+        },
+      ),
+      background: Container(
+          color: Colors.red,
+          child: Align(
+            alignment: Alignment(-0.9, 0.0),
+            child: Icon(
+              Icons.delete,
+              color: Colors.white,
+            ),
+          )),
+    );
+  }
+
   Future<File> _getFile() async {
     final directory = await getApplicationDocumentsDirectory();
     return File("${directory.path}/data.json");
@@ -96,22 +124,7 @@ class _HomeState extends State<Home> {
             Expanded(
               child: ListView.builder(
                 padding: EdgeInsets.only(top: 5.0),
-                itemBuilder: (BuildContext context, int index) {
-                  return CheckboxListTile(
-                    title: Text(_todoList[index]["title"]),
-                    value: _todoList[index]["done"],
-                    secondary: CircleAvatar(
-                        child: Icon(_todoList[index]["done"]
-                            ? Icons.check
-                            : Icons.error)),
-                    onChanged: (bool value) {
-                      setState(() {
-                        _todoList[index]["done"] = value;
-                        _saveData();
-                      });
-                    },
-                  );
-                },
+                itemBuilder: _itemBuilder,
                 itemCount: _todoList.length,
               ),
             ),
