@@ -18,6 +18,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   List _todoList = [];
   final TextEditingController _todoController = TextEditingController();
+  Map<String, dynamic> _lastRemoved;
+  int _lastRemovedPos;
 
   @override
   void initState() {
@@ -35,6 +37,22 @@ class _HomeState extends State<Home> {
     });
   }
 
+  void _removeItem(int index) {
+    _lastRemovedPos = index;
+    _lastRemoved = Map.from(_todoList[index]);
+    setState(() {
+      _todoList.removeAt(_lastRemovedPos);
+      _saveData();
+    });
+  }
+
+  void _restoredItem(int index, Map<String, dynamic> item) {
+    setState(() {
+      _todoList.insert(index, item);
+      _saveData();
+    });
+  }
+
   void _clearAddTodoController() {
     _todoController.text = "";
   }
@@ -43,6 +61,20 @@ class _HomeState extends State<Home> {
     return Dismissible(
       key: Key(index.toString()),
       direction: DismissDirection.startToEnd,
+      onDismissed: (DismissDirection direction) {
+        _removeItem(index);
+        final snack = SnackBar(
+          duration: Duration(seconds: 2),
+          content: Text("Tarefa ${_lastRemoved["title"]} removida!"),
+          action: SnackBarAction(
+            label: "desfazer",
+            onPressed: () {
+              _restoredItem(_lastRemovedPos, _lastRemoved);
+            },
+          ),
+        );
+        Scaffold.of(context).showSnackBar(snack);
+      },
       child: CheckboxListTile(
         title: Text(_todoList[index]["title"]),
         value: _todoList[index]["done"],
