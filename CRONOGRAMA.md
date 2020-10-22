@@ -130,11 +130,9 @@
 
    74. SnackBar e Desfazendo Ação [x]
 
-   75. Ordenando os Itens
+   75. Ordenando os Itens [x]
 
-   76. [OPCIONAL] Remover pilha de Snackbars
-
-
+   
 ## Seção 16:App #5 - Buscador de GIFs
    
 

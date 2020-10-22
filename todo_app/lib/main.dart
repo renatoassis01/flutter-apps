@@ -57,6 +57,21 @@ class _HomeState extends State<Home> {
     _todoController.text = "";
   }
 
+  Future<void> _refresh() async {
+    await Future.delayed(Duration(seconds: 1));
+
+    setState(() {
+      _todoList.sort((a, b) {
+        if (a["done"] && !b["done"]) return 1;
+        if (!a["done"] && !b["done"])
+          return -1;
+        else
+          return 0;
+      });
+      _saveData();
+    });
+  }
+
   Widget _itemBuilder(BuildContext context, int index) {
     return Dismissible(
       key: Key(index.toString()),
@@ -73,6 +88,7 @@ class _HomeState extends State<Home> {
             },
           ),
         );
+        Scaffold.of(context).removeCurrentSnackBar();
         Scaffold.of(context).showSnackBar(snack);
       },
       child: CheckboxListTile(
@@ -154,12 +170,14 @@ class _HomeState extends State<Home> {
               ),
             ),
             Expanded(
+                child: RefreshIndicator(
+              onRefresh: _refresh,
               child: ListView.builder(
                 padding: EdgeInsets.only(top: 5.0),
                 itemBuilder: _itemBuilder,
                 itemCount: _todoList.length,
               ),
-            ),
+            )),
           ],
         ));
   }
