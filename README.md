@@ -46,7 +46,7 @@
     * Sort
     * Armazenamento JSON
 
-## App #5 - Buscador de GIFs
+## ![App #5 - Buscador de GIFs](gif_search)
 
     * Navigator
     * GridView

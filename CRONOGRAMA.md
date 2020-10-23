@@ -136,7 +136,7 @@
 ## Seção 16:App #5 - Buscador de GIFs
    
 
-   78. Introdução ao App Buscador de GIFs
+   78. Introdução ao App Buscador de GIFs [x]
 
    79. [ATENÇÃO] - Versões dos Plugins para o App #5
 
