@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
             "https://developers.giphy.com/static/img/dev-logo-lg.7404c00322a8.gif"),
       ),
       body: Column(
-        children: [
+        children: <Widget>[
           Padding(
             padding: EdgeInsets.all(10.0),
             child: TextField(
@@ -57,8 +57,33 @@ class _HomePageState extends State<HomePage> {
                     labelStyle: TextStyle(color: Colors.white),
                     labelText: "Pesquise Aqui!")),
           ),
+          Expanded(
+              child: FutureBuilder(
+                  future: this._getGifs(),
+                  builder: (context, snapshot) {
+                    switch (snapshot.connectionState) {
+                      case ConnectionState.waiting:
+                      case ConnectionState.none:
+                        return Container(
+                          width: 200.0,
+                          height: 200.0,
+                          alignment: Alignment.center,
+                          child: CircularProgressIndicator(
+                              valueColor:
+                                  AlwaysStoppedAnimation<Color>(Colors.white),
+                              strokeWidth: 5.0),
+                        );
+                      default:
+                        if (snapshot.hasError)
+                          return Container();
+                        else
+                          return _createGifTable(context, snapshot);
+                    }
+                  }))
         ],
       ),
     );
   }
+
+  Widget _createGifTable(BuildContext context, AsyncSnapshot snapshot) {}
 }
