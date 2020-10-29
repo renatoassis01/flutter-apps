@@ -138,19 +138,19 @@
 
    78. Introdução ao App Buscador de GIFs [x]
 
-   79. [ATENÇÃO] - Versões dos Plugins para o App #5
+   79. [ATENÇÃO] - Versões dos Plugins para o App #5 [x]
 
-   80. API do GIPHY
+   80. API do GIPHY [x]
 
-   81. Requisitando os Dados
+   81. Requisitando os Dados [x]
 
-   82. Iniciando o Layout
+   82. Iniciando o Layout [x]
+   
+   83. Criando um Indicador de Progresso [x]
 
-   83. Criando um Indicador de Progresso
+   84. Correção do Erro da Próxima Aula [x]
 
-   84. Correção do Erro da Próxima Aula
-
-   85. Grid de Gifs
+   85. Grid de Gifs [x]
 
    86. Carregando mais Gifs
 
