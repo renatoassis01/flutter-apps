@@ -25,15 +25,15 @@ class _HomePageState extends State<HomePage> {
     if (_search == null)
       response = await http.get("$BASE_URL/$trending&$API_KEY&rating=G");
     else
-      response = await http
-          .get("$BASE_URL/$search$_search&$lang&$API_KEY&rating=G&$paginator");
+      print("$BASE_URL/$search$_search&$lang&$API_KEY&rating=G&$paginator");
+    response = await http
+        .get("$BASE_URL/$search$_search&$lang&$API_KEY&rating=G&$paginator");
     return json.decode(response.body);
   }
 
   @override
   void initState() {
     super.initState();
-    this._getGifs().then((value) => print(value));
   }
 
   @override
@@ -85,5 +85,19 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _createGifTable(BuildContext context, AsyncSnapshot snapshot) {}
+  Widget _createGifTable(BuildContext context, AsyncSnapshot snapshot) {
+    return GridView.builder(
+        padding: EdgeInsets.all(10.0),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, crossAxisSpacing: 10.0, mainAxisSpacing: 10.0),
+        itemCount: snapshot.data["data"].length,
+        itemBuilder: (BuildContext context, int index) {
+          return GestureDetector(
+            child: Image.network(
+                snapshot.data["data"][index]["images"]["fixed_height"]["url"],
+                height: 300.0,
+                fit: BoxFit.cover),
+          );
+        });
+  }
 }
