@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   int _offset = 0;
 
   Future<Map> _getGifs() async {
-    int limit = 20;
+    int limit = 19;
     String paginator = "limit=$limit&offset=$_offset";
     http.Response response;
     if (_search == null)
@@ -51,6 +51,11 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: EdgeInsets.all(10.0),
             child: TextField(
+                onSubmitted: (text) {
+                  setState(() {
+                    _search = text;
+                  });
+                },
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
