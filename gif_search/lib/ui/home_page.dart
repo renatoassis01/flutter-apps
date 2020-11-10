@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:gif_search/ui/gif_page.dart';
 import 'package:http/http.dart' as http;
+import 'package:share/share.dart';
 
 const API_KEY = "api_key=jNTSi44tQzCqOSdYLLVR00nGaTKPQKvA";
 const BASE_URL = "https://api.giphy.com/v1/gifs";
@@ -127,6 +128,9 @@ class _HomePageState extends State<HomePage> {
                   setState(() {
                     _offset += 19;
                   });
+                },
+                onLongPress: () {
+                  Share.share(snapshot.data["images"]["fixed_height"]["url"]);
                 },
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
